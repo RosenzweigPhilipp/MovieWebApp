@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Error - MoviWebApp{% endblock %}
+
+{% block content %}
+<div class="error-page">
+    <div class="error-content">
+        <h1 class="error-title">⚠️ Something Went Wrong</h1>
+        <div class="error-code">ERROR</div>
+        <p class="error-message">
+            We encountered an unexpected problem while processing your request. 
+            Don't worry - your data is safe and this is likely just a temporary issue.
+        </p>
+        
+        <div class="error-details">
+            <h3>🔍 What might have happened?</h3>
+            <ul>
+                <li>🌐 Temporary network connectivity issues</li>
+                <li>⚡ High server load causing delays</li>
+                <li>📊 Database temporarily unavailable</li>
+                <li>🔧 System maintenance in progress</li>
+            </ul>
+        </div>
+        
+        <div class="error-suggestions">
+            <h3>💡 Try these solutions:</h3>
+            <ul>
+                <li>🔄 Refresh the page and try again</li>
+                <li>⏰ Wait a few minutes and retry your action</li>
+                <li>🏠 <a href="{{ url_for('index') }}">Return to the home page</a></li>
+                <li>🎬 Check if your movies were saved successfully</li>
+            </ul>
+        </div>
+        
+        <div class="error-actions">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">🏠 Take Me Home</a>
+            <button onclick="location.reload()" class="btn btn-secondary">🔄 Try Again</button>
+            <button onclick="history.back()" class="btn btn-secondary">← Go Back</button>
+        </div>
+        
+        <div class="error-contact">
+            <p><small>
+                If this problem persists, please note the time and what you were doing when it occurred.
+            </small></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

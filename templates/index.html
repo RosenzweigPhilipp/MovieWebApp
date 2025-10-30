@@ -2,17 +2,46 @@
 
 {% block content %}
 <h1>Users</h1>
-<ul class="user-list">
-    {% for user in users %}
-    <li class="user-entry"> 
-        <a href="{{ url_for('get_movies', user_id=user.id) }}" class="btn">{{ user.name }}</a>
-    </li>
-    {% endfor %}
-</ul>
 
-<h2>Add New User</h2>
-<form action="{{ url_for('create_user') }}" method="post">
-    <input type="text" name="name" placeholder="Enter user name" required>
-    <button type="submit">Add User</button>
-</form>
+{% if users %}
+    <ul class="user-list">
+        {% for user in users %}
+        <li class="user-entry"> 
+            <div class="user-info">
+                <a href="{{ url_for('get_movies', user_id=user.id) }}" class="btn user-link">
+                    🎭 {{ user.name }}
+                </a>
+                <span class="user-movie-count">
+                    ({{ user_movie_counts[user.id] }} movies)
+                </span>
+            </div>
+            <div class="user-actions">
+                <form method="POST" action="{{ url_for('delete_user', user_id=user.id) }}" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete {{ user.name }} and all their movies?')">
+                    <button type="submit" class="delete-btn small-btn">🗑️ Delete</button>
+                </form>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <div class="no-users">
+        <p>🎬 No users registered yet. Add your first user below to start building movie collections!</p>
+    </div>
+{% endif %}
+
+<div class="add-user-section">
+    <h2>➕ Add New User</h2>
+    <form action="{{ url_for('create_user') }}" method="post">
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Enter user name" required maxlength="100">
+            <button type="submit">Add User</button>
+        </div>
+    </form>
+</div>
+
+<div class="app-stats">
+    <h3>📊 App Statistics</h3>
+    <p><strong>Total Users:</strong> {{ users|length }}</p>
+    <p><strong>Total Movies:</strong> {{ total_movies }}</p>
+</div>
 {% endblock %}

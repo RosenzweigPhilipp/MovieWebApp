@@ -18,6 +18,20 @@
     </nav>
     
     <main class="container">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash flash-{{ category }}">
+                            {{ message }}
+                            <button type="button" class="close-flash" onclick="this.parentElement.style.display='none';">&times;</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
         {% block content %}{% endblock %}
     </main>
     

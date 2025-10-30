@@ -10,16 +10,21 @@
         <div class="movies-list">
             {% for movie in movies %}
                 <div class="movie-item">
-                    <h3>{{ movie.title }}</h3>
+                    <div class="movie-header">
+                        <h3>{{ movie.title }}</h3>
+                        {% if movie.rating %}
+                            <span class="rating-badge">⭐ {{ movie.rating }}/10</span>
+                        {% endif %}
+                    </div>
                     <div class="movie-details">
                         {% if movie.year %}
                             <p><strong>📅 Year:</strong> {{ movie.year }}</p>
                         {% endif %}
-                        {% if movie.rating %}
-                            <p><strong>⭐ Rating:</strong> {{ movie.rating }}/10</p>
-                        {% endif %}
                         {% if movie.genre %}
                             <p><strong>🎭 Genre:</strong> {{ movie.genre }}</p>
+                        {% endif %}
+                        {% if not movie.year and not movie.genre and not movie.rating %}
+                            <p class="no-omdb-data">💡 Basic movie entry (OMDb data not available)</p>
                         {% endif %}
                     </div>
                     

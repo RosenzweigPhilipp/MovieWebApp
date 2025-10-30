@@ -109,6 +109,34 @@ li {
     margin: 1rem 0;
     border-radius: 5px;
     background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.movie-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.movie-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.rating-badge {
+    background-color: #ffc107;
+    color: #212529;
+    padding: 0.25rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.no-omdb-data {
+    color: #6c757d;
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
 .movie-actions {
@@ -134,4 +162,289 @@ li {
 
 .update-btn:hover {
     background-color: #218838;
+}
+
+/* Flash Messages */
+.flash-messages {
+    margin: 1rem 0;
+}
+
+.flash {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.close-flash {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+.close-flash:hover {
+    opacity: 0.7;
+}
+
+/* Enhanced User Interface */
+.user-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    border-radius: 5px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.user-movie-count {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.user-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.small-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.no-users {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+.add-user-section {
+    background-color: #e9ecef;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin: 2rem 0;
+}
+
+.form-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.form-group input {
+    flex: 1;
+    min-width: 200px;
+}
+
+.app-stats {
+    background-color: #f1f3f4;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 2rem 0;
+    border-left: 4px solid #28a745;
+}
+
+.app-stats h3 {
+    margin-top: 0;
+    color: #28a745;
+}
+
+.app-stats p {
+    margin: 0.5rem 0;
+    color: #495057;
+}
+
+/* Error Pages */
+.error-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 2rem;
+}
+
+.error-content {
+    text-align: center;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.error-title {
+    font-size: 2.5rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #6c757d;
+    margin: 1rem 0;
+    line-height: 1;
+}
+
+.error-message {
+    font-size: 1.1rem;
+    color: #495057;
+    margin: 1.5rem 0;
+    line-height: 1.6;
+}
+
+.error-details {
+    background-color: #e9ecef;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.error-suggestions {
+    text-align: left;
+    margin: 2rem 0;
+}
+
+.error-suggestions h3 {
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.error-suggestions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.error-suggestions li {
+    padding: 0.5rem 0;
+    border-left: none;
+    background-color: transparent;
+}
+
+.error-suggestions a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.error-suggestions a:hover {
+    text-decoration: underline;
+}
+
+.error-actions {
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+.error-contact {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dee2e6;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Enhanced error details styling */
+.error-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.error-details li {
+    padding: 0.5rem 0;
+    background-color: transparent;
+    border-left: none;
+}
+
+/* Responsive error pages */
+@media (max-width: 768px) {
+    .error-content {
+        padding: 2rem 1rem;
+        margin: 1rem;
+    }
+    
+    .error-title {
+        font-size: 2rem;
+    }
+    
+    .error-code {
+        font-size: 4rem;
+    }
+    
+    .btn {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: center;
+    }
 }

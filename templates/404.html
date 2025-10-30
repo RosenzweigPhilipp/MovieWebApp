@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - MoviWebApp{% endblock %}
+
+{% block content %}
+<div class="error-page">
+    <div class="error-content">
+        <h1 class="error-title">🎬 Oops! Scene Not Found</h1>
+        <div class="error-code">404</div>
+        <p class="error-message">
+            The page you're looking for seems to have gone off-script! 
+            It might have been moved, deleted, or never existed in the first place.
+        </p>
+        
+        <div class="error-suggestions">
+            <h3>🎯 Here's what you can do:</h3>
+            <ul>
+                <li>🏠 <a href="{{ url_for('index') }}">Go back to the home page</a></li>
+                <li>👥 Check if the user still exists in our <a href="{{ url_for('index') }}">user list</a></li>
+                <li>🔍 Double-check the URL for any typos</li>
+                <li>🎬 Start fresh by adding a new movie collection</li>
+            </ul>
+        </div>
+        
+        <div class="error-actions">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">🏠 Take Me Home</a>
+            <button onclick="history.back()" class="btn btn-secondary">← Go Back</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
