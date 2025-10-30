@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MoviWebApp{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🎬 MoviWebApp</h1>
+        <p>Your Personal Movie Collection Manager</p>
+    </header>
+    
+    <nav>
+        <a href="{{ url_for('index') }}">🏠 Home</a>
+        <a href="{{ url_for('index') }}">👥 Users</a>
+    </nav>
+    
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer style="text-align: center; padding: 2rem; background-color: #333; color: white; margin-top: 2rem;">
+        <p>&copy; 2025 MoviWebApp - Built with Flask & ❤️</p>
+    </footer>
+</body>
+</html>

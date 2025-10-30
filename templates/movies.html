@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.name }}'s Movies - MoviWebApp{% endblock %}
+
+{% block content %}
+<div class="movies-page">
+    <h2>🎬 {{ user.name }}'s Favorite Movies</h2>
+    
+    {% if movies %}
+        <div class="movies-list">
+            {% for movie in movies %}
+                <div class="movie-item">
+                    <h3>{{ movie.title }}</h3>
+                    <div class="movie-details">
+                        {% if movie.year %}
+                            <p><strong>📅 Year:</strong> {{ movie.year }}</p>
+                        {% endif %}
+                        {% if movie.rating %}
+                            <p><strong>⭐ Rating:</strong> {{ movie.rating }}/10</p>
+                        {% endif %}
+                        {% if movie.genre %}
+                            <p><strong>🎭 Genre:</strong> {{ movie.genre }}</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="movie-actions">
+                        <!-- Update Form -->
+                        <form method="POST" action="{{ url_for('update_movie', user_id=user.id, movie_id=movie.id) }}" style="display: inline;">
+                            <input type="text" name="title" placeholder="New title" size="20" required>
+                            <button type="submit" class="update-btn">✏️ Update</button>
+                        </form>
+                        
+                        <!-- Delete Form -->
+                        <form method="POST" action="{{ url_for('delete_movie', user_id=user.id, movie_id=movie.id) }}" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this movie?')">
+                            <button type="submit" class="delete-btn">🗑️ Delete</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>🎬 No movies added yet. Start building your collection below!</p>
+    {% endif %}
+    
+    <div class="add-movie-section">
+        <h3>➕ Add New Movie</h3>
+        <form method="POST" action="{{ url_for('add_movie', user_id=user.id) }}">
+            <input type="text" name="title" placeholder="Enter movie title" required>
+            <button type="submit">Add Movie</button>
+        </form>
+        <p><small>💡 We'll automatically fetch movie details from OMDb!</small></p>
+    </div>
+    
+    <div class="navigation">
+        <a href="{{ url_for('index') }}" style="text-decoration: none;">← Back to Home</a>
+    </div>
+</div>
+{% endblock %}
